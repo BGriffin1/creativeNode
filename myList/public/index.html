@@ -3,29 +3,32 @@
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
 <script src="javascripts/app.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
   <meta charset="utf-8">
   <title>My Song List</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
-  <div id='app' ng-app='app' ng-controller='mainCtrl' class='list center stretch backgroundDiv'>
+  <div id='app' ng-app='app' ng-controller='mainCtrl' class='backgroundDiv'>
 
-    <h1>My Song List:</h1>
-    <form id="newPoki" ng-submit="addPoki()">
-      Song Name: <input type="text" ng-model="Name" value=""><br>
-      Artist: <input type="url" ng-model="Url" value=""><br>
-      <input type="submit" value="Submit">
-    </form>
-
-    <ul ng-if='pokemon.length'>  <!--class='list center stretch'>-->
-      <li ng-repeat='p in pokemon' class='pokemon'>
-        <h1>{{ p.name }} <img class='avatar' ng-src="{{p.avatarUrl}}" /></h1>
-        <!--<img class='avatar' ng-src="{{p.avatarUrl}}" />-->
+    <h1>My Song List</h1>
+    <form id="newSong" ng-submit="addSong()">
+      Song Name: <input type="text" ng-model="Name" value=""> 
+      Artist: <input type="text" ng-model="Artist" value="">
+      <input type="submit" value="Add song">
+    </form><br> <hr>
+    
+    <!--<div class="scrollable">-->
+    <ul ng-if='songs.length' class="list">  <!--class='list center stretch'-->
+      <li ng-repeat='song in songs' class='songItem'>
+        <h1><span class="glyphicon glyphicon-remove" ng-click="deleteSong(song)"/></span> {{ song.name }}</h1> 
+        <!--<img class='avatar' ng-src="{{song.artist}}"/></h1>-->
       </li>
     </ul>
-
-  </div>
+    </div>
+  <!--</div>-->
 
 </body>
 </html>

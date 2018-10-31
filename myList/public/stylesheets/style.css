@@ -1,58 +1,56 @@
-/*.backgroundDiv {*/
-/*        margin: 3em;*/
-/*        padding: 2em;*/
-/*        background-color: white;*/
-/*        opacity: 0.7;*/
-/*        border-radius: 25px;*/
-/*    }*/
+body{
+  background-image: url("background_gradient.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.backgroundDiv {
+        margin: 1em 10em 1em 10em;
+        padding: 2em;
+        background-color: white;
+        opacity: 0.7;
+        border-radius: 25px;
+        /*position: fixed;*/
+    }
 html, #app {
-  /*width: 100%;*/
-  /*height: 100%;*/
-  padding: 0;
-  margin: 0;
   font-family: helvetica;
 }
-/*body{*/
-/*  background-image: url("spotify.png");*/
-/*  background-repeat: no-repeat;*/
-/*  background-attachment: fixed;*/
-  /*font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;*/
-/*}*/
 
 div, ul {
   margin: 0;
   padding: 0;
+  list-style-type: none;
 }
 
-/*.stretch {*/
-/*  width: 100%;*/
-/*  height: 100%;*/
-/*}*/
-
-.center {
-  /*display: flex;*/
-  align-items: center;
-  justify-content: center;
-  /*flex-wrap: wrap;*/
+.stretch {
+  width: 100%;
+  height: 100%;
 }
 
 .h1 {
   margin: 0;
-  /*color: white;*/
 }
 
-/*.pokemon {*/
-/*  padding: 20px;*/
-/*}*/
+.songItem {
+  /*float: left;*/
+  display: flex;
+  /*background: gray;*/
+  width: 100%;
+  /*border-style: solid;*/
+  /*border-width: 0px 0px 1px 0px;*/
+  /*height: 4em;*/
+}
 
 .avatar {
   width: 50px;
-  /*height: 100px;*/
 }
 
 .list {
   text-align: center;
   list-style: none;
-  /*background-color: #4FC1E9;*/
-  /*color: white;*/
 }
+
+/*.scrollable{*/
+   /*overflow: auto;*/
+   /*height: 20em;*/
+/*   background: black;*/
+/*}*/

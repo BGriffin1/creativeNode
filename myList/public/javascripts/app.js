@@ -1,13 +1,11 @@
 var app = window.angular.module('app', [])
 
-app.factory('pokemonFetcher', pokemonFetcher)
+app.factory('songFetcher', songFetcher)
 app.controller('mainCtrl', mainCtrl)
 
+function songFetcher ($http) {
 
-
-function pokemonFetcher ($http) {
-
-  var API_ROOT = 'pokemon'
+  var API_ROOT = '/songs'
   return {
     get: function () {
       return $http
@@ -20,27 +18,29 @@ function pokemonFetcher ($http) {
 
 }
 
-function mainCtrl ($scope, pokemonFetcher, $http) {
-
+function mainCtrl ($scope, songFetcher, $http) {
   // var politics = "/politics";
-  $scope.pokemon = []
+  $scope.songs = []
 
-  pokemonFetcher.get()
+  songFetcher.get()
     .then(function (data) {
-      $scope.pokemon = data
+      $scope.songs = data
+      console.log("songs: ", data);
     })
     
-    $scope.addPoki = function() {
-      var formData = {name:$scope.Name,avatarUrl:$scope.Artist};
+    $scope.addSong = function() {
+      var formData = {name:$scope.Name,artist:$scope.Artist};
       console.log(formData);
-      var pokiURL = 'pokemon';
+      var songURL = 'songs';
       $http({
-         url: pokiURL,
+         url: songURL,
          method: "POST",
          data: formData
       }).success(function(data, status, headers, config) {
         console.log("Post worked");
-        
+        $scope.songs.push(data);
+        $scope.Name = "";
+        $scope.Artist = "";
       }).error(function(data, status, headers, config) {
         console.log("Post failed");
       })
@@ -50,4 +50,69 @@ function mainCtrl ($scope, pokemonFetcher, $http) {
       ;
     }
     
+    $scope.deleteSong = function(song) {
+      var songData = {name:song.name,artist:song.artist};
+      // var index = $scope.songs.indexOf(song);
+      var songURL = 'deleteSong';
+      $http({
+         url: songURL,
+         method: "POST",
+         data: songData
+      }).success(function(data, status, headers, config) {
+        console.log("Post worked");
+        $scope.songs.splice(Number(data), 1);
+      }).error(function(data, status, headers, config) {
+        console.log("Post failed");
+      })
+    };
+    
 }
+
+
+
+// function pokemonFetcher ($http) {
+
+//   var API_ROOT = 'pokemon'
+//   return {
+//     get: function () {
+//       return $http
+//         .get(API_ROOT)
+//         .then(function (resp) {
+//           return resp.data
+//         })
+//     }
+//   }
+
+// }
+
+// function mainCtrl ($scope, pokemonFetcher, $http) {
+
+//   // var politics = "/politics";
+//   $scope.pokemon = []
+
+//   pokemonFetcher.get()
+//     .then(function (data) {
+//       $scope.pokemon = data
+//     })
+    
+//     $scope.addPoki = function() {
+//       var formData = {name:$scope.Name,avatarUrl:$scope.Artist};
+//       console.log(formData);
+//       var pokiURL = 'pokemon';
+//       $http({
+//         url: pokiURL,
+//         method: "POST",
+//         data: formData
+//       }).success(function(data, status, headers, config) {
+//         console.log("Post worked");
+        
+//       }).error(function(data, status, headers, config) {
+//         console.log("Post failed");
+//       })
+//     //   .then(function (data) {
+//     //   $scope.pokemon = data
+//     // });
+//       ;
+//     }
+    
+// }
