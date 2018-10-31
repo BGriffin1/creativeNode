@@ -17,13 +17,14 @@
     <form id="newSong" ng-submit="addSong()">
       Song Name: <input type="text" ng-model="Name" value="" required> 
       Artist: <input type="text" ng-model="Artist" value="" required>
-      <input type="submit" value="Add song">
+      <input class="addButton" type="submit" value="Add song">
     </form><br> <hr>
     
     <!--<div class="scrollable">-->
     <ul ng-if='songs.length' class="list">  <!--class='list center stretch'-->
       <li ng-repeat='song in songs' class='songItem'>
-        <h1><span class="glyphicon glyphicon-remove" ng-click="deleteSong(song)"/></span> {{ song.name }}</h1> 
+        <text class="songInfo">{{ song.name }}</text>
+        <span class="glyphicon glyphicon-remove close" ng-click="deleteSong(song)"/></span>
         <!--<img class='avatar' ng-src="{{song.artist}}"/></h1>-->
       </li>
     </ul>
