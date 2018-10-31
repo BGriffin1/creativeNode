@@ -17,9 +17,9 @@ div, ul {
   height: 100%;
 }
 
-.no-pokemon {
-  background-color: #ED5565;
-}
+/*.no-pokemon {*/
+/*  background-color: #ED5565;*/
+/*}*/
 
 .center {
   display: flex;
