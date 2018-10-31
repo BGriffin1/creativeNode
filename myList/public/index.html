@@ -9,25 +9,19 @@
 </head>
 <body>
 
-  <div id='app' ng-app='app' ng-controller='mainCtrl'>
+  <div id='app' ng-app='app' ng-controller='mainCtrl' class='list center stretch backgroundDiv'>
 
-    <h1>My To-Do List:</h1>
+    <h1>My Song List:</h1>
     <form id="newPoki" ng-submit="addPoki()">
-      Name: <input type="text" ng-model="Name" value=""><br>
-      Url: <input type="url" ng-model="Url" value=""><br>
+      Song Name: <input type="text" ng-model="Name" value=""><br>
+      Artist: <input type="url" ng-model="Url" value=""><br>
       <input type="submit" value="Submit">
     </form>
 
-    <div ng-if='!pokemon.length' class='no-pokemon center stretch'>
-      <h1 class='h1'>
-        Set up your endpoint at `/pokemon` to get this view working
-      </h1>
-    </div>
-
-    <ul ng-if='pokemon.length' class='list center stretch'>
+    <ul ng-if='pokemon.length'>  <!--class='list center stretch'>-->
       <li ng-repeat='p in pokemon' class='pokemon'>
-        <h1>{{ p.name }}</h1>
-        <img class='avatar' ng-src="{{p.avatarUrl}}" />
+        <h1>{{ p.name }} <img class='avatar' ng-src="{{p.avatarUrl}}" /></h1>
+        <!--<img class='avatar' ng-src="{{p.avatarUrl}}" />-->
       </li>
     </ul>
 

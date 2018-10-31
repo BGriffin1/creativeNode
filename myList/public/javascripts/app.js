@@ -31,7 +31,7 @@ function mainCtrl ($scope, pokemonFetcher, $http) {
     })
     
     $scope.addPoki = function() {
-      var formData = {name:$scope.Name,avatarUrl:$scope.Url};
+      var formData = {name:$scope.Name,avatarUrl:$scope.Artist};
       console.log(formData);
       var pokiURL = 'pokemon';
       $http({
