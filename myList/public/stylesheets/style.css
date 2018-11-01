@@ -30,6 +30,10 @@ ul li:nth-child(odd) {
 .songInfo{
   font-size: 1.5em;
 }
+.songArtist{
+  font-style: italic;
+  color: gray;
+}
 
 body{
   background-image: url("background_gradient.jpg");
@@ -66,6 +70,12 @@ body{
 .list {
   text-align: center;
   list-style: none;
+}
+.albumArt{
+  width: 5em;  
+}
+.centeredDiv{
+  padding: 1em 1em;
 }
 
 /*.scrollable{*/

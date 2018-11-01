@@ -1,0 +1,9 @@
+https://www.last.fm/home
+
+
+
+Application name	songList
+API key	7380cca68e8e7f63bddc4f3fe7ecc72a
+Shared secret	15210c5e27caf48118eab0853bc398c5
+Registered to	nanapria
+

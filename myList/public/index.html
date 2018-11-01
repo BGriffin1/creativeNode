@@ -15,16 +15,22 @@
 
     <h1>My Song List</h1>
     <form id="newSong" ng-submit="addSong()">
-      Song Name: <input type="text" ng-model="Name" value="" required> 
-      Artist: <input type="text" ng-model="Artist" value="" required>
+      Song Name: <input type="text" ng-model="Name" value="Everything" required> 
+      Artist: <input type="text" ng-model="Artist" value="Michael Buble" required>
       <input class="addButton" type="submit" value="Add song">
     </form><br> <hr>
     
     <!--<div class="scrollable">-->
     <ul ng-if='songs.length' class="list">  <!--class='list center stretch'-->
       <li ng-repeat='song in songs' class='songItem'>
-        <text class="songInfo">{{ song.name }}</text>
-        <span class="glyphicon glyphicon-remove close" ng-click="deleteSong(song)"/></span>
+        <!--<img src="default-album-artwork.png"/>-->
+        <span><img class="albumArt" src="{{song.albumUrl}}" /></span>
+        <div class="centeredDiv">
+          <text class="songInfo">{{ song.name }}</text>
+          <br>
+          <text class="songArtist">{{ song.artist }}</text>
+          <span class="glyphicon glyphicon-remove close" ng-click="deleteSong(song)"/></span>
+        </div>
         <!--<img class='avatar' ng-src="{{song.artist}}"/></h1>-->
       </li>
     </ul>
