@@ -54,9 +54,9 @@ router.post('/songs', function(req, res) {
     	      var trackArtist = payload.track.artist.name;
       	    var albumArt = "default-album-artwork.png";    	      
     	      if(payload.track.album != undefined){
-    	       // if(payload.track.album.image[2] != undefined){
+    	        if(payload.track.album.image[2]["#text"] != ''){
     	          albumArt = payload.track.album.image[2]["#text"];
-    	       // }
+    	        }
     	      }
     	      var newSong = {"name": trackName, "artist": trackArtist, "albumUrl": albumArt, "trackUrl": trackUrl, num: songs.length+1};
     	      songs.push(newSong);

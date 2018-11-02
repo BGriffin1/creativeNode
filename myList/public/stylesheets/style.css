@@ -14,9 +14,6 @@ ul li {
 ul li:nth-child(odd) {
     background: #f9f9f9;
 }
-/*.addButton:hover {*/
-/*    background-color: #bbb;*/
-/*}*/
 .close {
     position: absolute;
     float: right;
@@ -62,7 +59,6 @@ body{
   display: flex;
   width: 100%;
 }
-
 .avatar {
   width: 50px;
 }
@@ -82,8 +78,9 @@ body{
   cursor: pointer;
 }
 
-/*.scrollable{*/
-   /*overflow: auto;*/
-   /*height: 20em;*/
-/*   background: black;*/
+/*.albumArt:hover, .centeredDiv:hover{*/
+/*  background-color: lightgray;*/
+/*}*/
+/*.songItem:hover { */
+/*    background-color: lightgray;*/
 /*}*/
