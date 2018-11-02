@@ -9,7 +9,7 @@
 6 silly lifecycle mylist@0.0.0~prestart: no script for prestart, continuing
 7 info lifecycle mylist@0.0.0~start: mylist@0.0.0
 8 verbose lifecycle mylist@0.0.0~start: unsafe-perm in lifecycle true
-9 verbose lifecycle mylist@0.0.0~start: PATH: /home/ec2-user/.nvm/versions/node/v6.14.4/lib/node_modules/npm/bin/node-gyp-bin:/var/www/html/creativeNode/myList/node_modules/.bin:/usr/local/rvm/gems/ruby-2.4.1/bin:/usr/local/rvm/gems/ruby-2.4.1@global/bin:/usr/local/rvm/rubies/ruby-2.4.1/bin:/home/ec2-user/.nvm/versions/node/v6.14.4/bin:/usr/local/bin:/bin:/usr/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/aws/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/opt/aws/bin:/usr/local/rvm/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin
+9 verbose lifecycle mylist@0.0.0~start: PATH: /home/ec2-user/.nvm/versions/node/v6.14.4/lib/node_modules/npm/bin/node-gyp-bin:/var/www/html/creativeNode/myList/node_modules/.bin:/home/ec2-user/.nvm/versions/node/v6.14.4/bin:/usr/local/rvm/gems/ruby-2.4.1/bin:/usr/local/rvm/gems/ruby-2.4.1@global/bin:/usr/local/rvm/rubies/ruby-2.4.1/bin:/usr/local/bin:/bin:/usr/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/aws/bin:/usr/local/rvm/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin
 10 verbose lifecycle mylist@0.0.0~start: CWD: /var/www/html/creativeNode/myList
 11 silly lifecycle mylist@0.0.0~start: Args: [ '-c', 'node ./bin/www' ]
 12 silly lifecycle mylist@0.0.0~start: Returned: code: 1  signal: null

@@ -22,15 +22,15 @@
     
     <!--<div class="scrollable">-->
     <ul ng-if='songs.length' class="list">  <!--class='list center stretch'-->
-      <li ng-repeat='song in songs' class='songItem'>
-        <!--<img src="default-album-artwork.png"/>-->
-        <span><img class="albumArt" src="{{song.albumUrl}}" /></span>
-        <div class="centeredDiv">
+      <li ng-repeat='song in songs | orderBy: "-num"' class='songItem'">
+        <span><img class="albumArt" src="{{song.albumUrl}}" ng-click="openURLinNewTab(song)"/></span>
+        <div class="centeredDiv" ng-click="openURLinNewTab(song)">
           <text class="songInfo">{{ song.name }}</text>
           <br>
           <text class="songArtist">{{ song.artist }}</text>
-          <span class="glyphicon glyphicon-remove close" ng-click="deleteSong(song)"/></span>
+          
         </div>
+        <span class="glyphicon glyphicon-remove close" ng-click="deleteSong(song)"/></span>
         <!--<img class='avatar' ng-src="{{song.artist}}"/></h1>-->
       </li>
     </ul>

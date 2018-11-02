@@ -42,6 +42,9 @@ function mainCtrl ($scope, songFetcher, $http) {
         $scope.Artist = "";
       }).error(function(data, status, headers, config) {
         console.log("Post failed");
+        $scope.Name = "";
+        $scope.Artist = "";
+        alert("Please enter valid song and artist combination.");
       })
       ;
     }
@@ -60,6 +63,10 @@ function mainCtrl ($scope, songFetcher, $http) {
       }).error(function(data, status, headers, config) {
         console.log("Post failed");
       })
+    };
+    
+    $scope.openURLinNewTab = function(song) {
+      window.open(song.trackUrl);
     };
     
 }

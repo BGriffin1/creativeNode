@@ -76,6 +76,10 @@ body{
 }
 .centeredDiv{
   padding: 1em 1em;
+  text-align: left;
+}
+.albumArt, .centeredDiv{
+  cursor: pointer;
 }
 
 /*.scrollable{*/

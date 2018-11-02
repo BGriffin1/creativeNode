@@ -12,16 +12,12 @@ router.get('/', function(req, res) {
 });
 
 var songs = [
-  {
-    name: 'Song1',
-    artist: 'Artist1',
-    albumUrl: 'default-album-artwork.png'
-  },
-  {
-    name: 'Song2',
-    artist: 'Artist2',
-    albumUrl: 'default-album-artwork.png'
-  }
+    { name: 'Everything',
+    artist: 'Michael Bublé',
+    albumUrl: 'https://lastfm-img2.akamaized.net/i/u/174s/8e3918e2eb2043b09baec9e82b85bf83.png',
+    trackUrl: 'https://www.last.fm/music/Michael+Bubl%C3%A9/_/Everything',
+    num: 1
+    } 
 ];
 
 router.get('/songs', function(req, res) {
@@ -43,11 +39,38 @@ router.post('/songs', function(req, res) {
     }).on('success', (payload)=>{
     	 /*YOUR CODE GOES HERE*/
     	 console.log("payload: ", payload);
-	     var newSong = {"name": payload.track.name, "artist": payload.track.artist.name, "albumUrl": payload.track.album.image[2]['#text']};
-	     songs.push(newSong);
-       res.send(newSong);
-       res.end('{"success" : "Updated Successfully", "status" : 200}');
-       console.log("songs: ",songs);
+    	 if(payload.error != undefined){
+    	   console.log("payload error: ", payload.error);
+    	   return res.status(400).send({
+           message: 'This is an error!'
+         });
+        // res.end('{"error" : "Track not found", "status" : 200}');
+    	 }
+    	 else{
+        if(payload.track != undefined) {
+          var trackName = payload.track.name;
+          var trackUrl = payload.track.url;
+          if(payload.track.artist != undefined){
+    	      var trackArtist = payload.track.artist.name;
+      	    var albumArt = "default-album-artwork.png";    	      
+    	      if(payload.track.album != undefined){
+    	       // if(payload.track.album.image[2] != undefined){
+    	          albumArt = payload.track.album.image[2]["#text"];
+    	       // }
+    	      }
+    	      var newSong = {"name": trackName, "artist": trackArtist, "albumUrl": albumArt, "trackUrl": trackUrl, num: songs.length+1};
+    	      songs.push(newSong);
+            res.send(newSong);
+            res.end('{"success" : "Updated Successfully", "status" : 200}');
+            console.log("songs: ",songs);
+            return;
+          }
+        }
+        console.log("missing track name or artist name!.. track: ", payload.track, ", artist: ", payload.track.artist);
+    	   return res.status(400).send({
+           message: 'This is an error!'
+         });
+    	 }
     }).on('error', (payload)=>{
     	 /*YOUR CODE GOES HERE*/ 
     	 console.log("error!: ", payload);
