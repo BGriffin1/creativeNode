@@ -58,12 +58,14 @@ router.post('/songs', function(req, res) {
     	          albumArt = payload.track.album.image[2]["#text"];
     	        }
     	      }
-    	      var newSong = {"name": trackName, "artist": trackArtist, "albumUrl": albumArt, "trackUrl": trackUrl, num: songs.length+1};
-    	      songs.push(newSong);
-            res.send(newSong);
-            res.end('{"success" : "Updated Successfully", "status" : 200}');
-            console.log("songs: ",songs);
-            return;
+    	      if(payload.track.duration != 0){
+      	      var newSong = {"name": trackName, "artist": trackArtist, "albumUrl": albumArt, "trackUrl": trackUrl, num: songs.length+1};
+      	      songs.push(newSong);
+              res.send(newSong);
+              res.end('{"success" : "Updated Successfully", "status" : 200}');
+              console.log("songs: ",songs);
+              return;
+    	      }
           }
         }
         console.log("missing track name or artist name!.. track: ", payload.track, ", artist: ", payload.track.artist);
